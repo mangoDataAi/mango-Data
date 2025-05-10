@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.mango</groupId>
+    <artifactId>mango</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>mango</name>
+    <description>芒果数据中台</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.3</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>2021.0.1</spring-cloud.version>
+        <spring-boot.version>2.7.3</spring-boot.version>
+        <fastjson.version>1.2.77</fastjson.version>
+    </properties>
+
+    <modules>
+        <module>mango-server</module>
+    </modules>
+
+    <dependencies>
+        <!-- 统一管理MongoDB相关依赖 -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>bson</artifactId>
+            <version>4.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-core</artifactId>
+            <version>4.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>4.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <version>3.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- 数据库监控相关依赖 -->
+        <dependency>
+            <groupId>org.lightcouch</groupId>
+            <artifactId>lightcouch</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.couchbase.client</groupId>
+            <artifactId>java-client</artifactId>
+            <version>3.4.3</version>
+        </dependency>
+        <!-- 在mango-test/pom.xml中 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.micrometer</groupId>
+                    <artifactId>micrometer-registry-mongodb</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>bson</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver-sync</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- SequoiaDB 依赖 -->
+        <dependency>
+            <groupId>com.sequoiadb</groupId>
+            <artifactId>sequoiadb-driver</artifactId>
+            <version>1.12</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>bson</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.3.3</version>
+        </dependency>
+
+        <!-- MinIO 依赖 -->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>8.5.4</version>
+        </dependency>
+
+        <!-- 阿里云 OSS 依赖 -->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>3.16.1</version>
+        </dependency>
+
+        <!-- Neo4j Driver -->
+
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>4.4.11</version>
+        </dependency>
+
+        <!-- InfluxDB 依赖 -->
+        <dependency>
+            <groupId>org.influxdb</groupId>
+            <artifactId>influxdb-java</artifactId>
+            <version>2.23</version>
+        </dependency>
+
+        <!-- HBase 依赖 -->
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>2.4.12</version>
+        </dependency>
+
+        <!-- Elasticsearch 依赖 -->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>7.17.9</version>
+        </dependency>
+
+        <!-- Apache Commons Lang -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+
+        <!-- 消息队列依赖 -->
+        <!-- Kafka 依赖 -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.13</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+
+
+        <!-- Nebula Graph -->
+        <dependency>
+            <groupId>com.vesoft</groupId>
+            <artifactId>client</artifactId>
+            <version>3.4.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>bson</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <!-- HugeGraph -->
+        <dependency>
+            <groupId>com.baidu.hugegraph</groupId>
+            <artifactId>hugegraph-client</artifactId>
+            <version>2.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>bson</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <!-- JanusGraph -->
+        <dependency>
+            <groupId>org.janusgraph</groupId>
+            <artifactId>janusgraph-core</artifactId>
+            <version>0.6.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver-sync</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>bson</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongodb-driver</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.elasticsearch.client</groupId>
+                        <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.elasticsearch</groupId>
+                        <artifactId>elasticsearch</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.elasticsearch.client</groupId>
+                        <artifactId>elasticsearch-rest-client</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.elasticsearch</groupId>
+                        <artifactId>elasticsearch</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpcore</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mongodb</groupId>
+                        <artifactId>bson</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mongodb</groupId>
+                        <artifactId>mongodb-driver-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mongodb</groupId>
+                        <artifactId>mongodb-driver</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.mongodb</groupId>
+                        <artifactId>mongodb-driver-sync</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>4.4.12</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore-nio</artifactId>
+                <version>4.4.12</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>bson</artifactId>
+                <version>4.7.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongodb-driver-core</artifactId>
+                <version>4.7.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongodb-driver</artifactId>
+                <version>4.7.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>${project.name}</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <configuration>
+                        <finalName>${project.build.finalName}</finalName>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <target>${maven.compiler.target}</target>
+                    <source>${maven.compiler.source}</source>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <nonFilteredFileExtensions>
+                        <!--解决分布式报表文件读取不到-->
+                        <nonFilteredFileExtension>jasper</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+            
+            <!-- 强制使用指定版本的依赖插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>enforce-versions</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <dependencyConvergence />
+                                <requireUpperBoundDeps />
+                                <bannedDependencies>
+                                    <excludes>
+                                        <exclude>org.mongodb:bson:[,4.7.2)</exclude>
+                                        <exclude>org.mongodb:mongodb-driver-core:[,4.7.2)</exclude>
+                                        <exclude>org.mongodb:mongodb-driver:[,4.7.2)</exclude>
+                                    </excludes>
+                                </bannedDependencies>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

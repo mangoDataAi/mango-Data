@@ -1,0 +1,5 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="14" fill="#FF0000"/>
+  <path d="M8 12h16v8H8z" fill="white"/>
+  <text x="10" y="18" fill="#FF0000" font-size="8" font-family="Arial">HW</text>
+</svg> 

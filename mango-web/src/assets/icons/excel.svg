@@ -1,0 +1,6 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="14" fill="#217346"/>
+  <path d="M10 8h8l4 4v12H10V8z" fill="white"/>
+  <path d="M18 8v4h4" fill="none" stroke="white" stroke-width="2"/>
+  <text x="13" y="20" fill="#217346" font-size="8" font-family="Arial">XLS</text>
+</svg> 

@@ -1,0 +1,101 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 主圆形背景 -->
+  <circle 
+    cx="100" 
+    cy="100" 
+    r="90" 
+    fill="url(#circleGradient)"
+    filter="url(#glowEffect)"
+  />
+
+  <!-- 抽象芒果形状 -->
+  <path
+    d="M100 50C130 50 140 70 140 100C140 130 130 150 100 150C70 150 60 130 60 100C60 70 70 50 100 50Z"
+    fill="url(#mangoGradient)"
+    filter="url(#innerGlow)"
+  />
+
+  <!-- 数据流动线条 -->
+  <g stroke-linecap="round" stroke-width="3" opacity="0.8">
+    <path d="M80 85H120" stroke="rgba(255,255,255,0.8)">
+      <animate
+        attributeName="stroke-dasharray"
+        values="0 40;40 0"
+        dur="1.5s"
+        repeatCount="indefinite"
+      />
+    </path>
+    <path d="M80 100H120" stroke="rgba(255,255,255,0.6)">
+      <animate
+        attributeName="stroke-dasharray"
+        values="40 0;0 40"
+        dur="1.5s"
+        repeatCount="indefinite"
+      />
+    </path>
+    <path d="M80 115H120" stroke="rgba(255,255,255,0.4)">
+      <animate
+        attributeName="stroke-dasharray"
+        values="0 40;40 0"
+        dur="1.5s"
+        repeatCount="indefinite"
+      />
+    </path>
+  </g>
+
+  <!-- 外环装饰 -->
+  <circle 
+    cx="100" 
+    cy="100" 
+    r="85" 
+    stroke="url(#ringGradient)" 
+    stroke-width="2"
+    stroke-dasharray="4 4"
+    opacity="0.8"
+  >
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 100 100"
+      to="360 100 100"
+      dur="20s"
+      repeatCount="indefinite"
+    />
+  </circle>
+
+  <defs>
+    <!-- 主圆形渐变 -->
+    <linearGradient id="circleGradient" x1="0" y1="0" x2="200" y2="200">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+
+    <!-- 芒果渐变 -->
+    <linearGradient id="mangoGradient" x1="60" y1="50" x2="140" y2="150">
+      <stop offset="0%" stop-color="#FFC107"/>
+      <stop offset="100%" stop-color="#FF9800"/>
+    </linearGradient>
+
+    <!-- 环形渐变 -->
+    <linearGradient id="ringGradient" x1="0" y1="0" x2="200" y2="200">
+      <stop offset="0%" stop-color="#90CAF9"/>
+      <stop offset="100%" stop-color="#42A5F5"/>
+    </linearGradient>
+
+    <!-- 外发光效果 -->
+    <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#1976D2" flood-opacity="0.5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+
+    <!-- 内发光效果 -->
+    <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#FFA000" flood-opacity="0.5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+</svg> 

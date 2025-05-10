@@ -1,0 +1,21 @@
+// 主题色
+$--color-primary: #409EFF;
+
+// 文字颜色
+$--color-text-primary: #303133;
+$--color-text-regular: #606266;
+$--color-text-secondary: #909399;
+
+// 边框颜色
+$--border-color-base: #DCDFE6;
+$--border-color-light: #E4E7ED;
+$--border-color-lighter: #EBEEF5;
+
+// 背景颜色
+$--background-color-base: #F5F7FA;
+
+// 导出变量给 JS 使用
+:export {
+  colorPrimary: $--color-primary;
+  textPrimary: $--color-text-primary;
+} 
