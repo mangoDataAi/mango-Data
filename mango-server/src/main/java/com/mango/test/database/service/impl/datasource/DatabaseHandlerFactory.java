@@ -150,8 +150,8 @@ public class DatabaseHandlerFactory {
                 return new MySQLHandler(dataSource);
             case DatabaseTypes.ORACLE:
                 return new OracleHandler(dataSource);
-//            case DatabaseTypes.POSTGRESQL:
-//                return new PostgreSQLHandler(dataSource);
+            case DatabaseTypes.POSTGRESQL:
+                return new PostgreSQLHandler(dataSource);
 //            case DatabaseTypes.SQLSERVER:
 //                return new SQLServerHandler(dataSource);
 //            case DatabaseTypes.DB2:
@@ -174,8 +174,8 @@ public class DatabaseHandlerFactory {
 //                return new GaussDBHandler(dataSource);
 //            case DatabaseTypes.OPENGAUSS:
 //                return new OpenGaussHandler(dataSource);
-//            case DatabaseTypes.KINGBASE:
-//                return new KingbaseHandler(dataSource);
+            case DatabaseTypes.KINGBASE:
+                return new KingbaseHandler(dataSource);
 //            case DatabaseTypes.SHENTONG:
 //                return new ShenTongHandler(dataSource);
 //            case DatabaseTypes.HIGHGO:
@@ -200,8 +200,8 @@ public class DatabaseHandlerFactory {
             // 大数据数据库
             case DatabaseTypes.HIVE:
                 return new HiveHandler(dataSource);
-//            case DatabaseTypes.HBASE:
-//                return new HBaseHandler(dataSource);
+            case DatabaseTypes.HBASE:
+                return new HBaseHandler(dataSource);
             case DatabaseTypes.CLICKHOUSE:
                 return new ClickHouseHandler(dataSource);
 //            case DatabaseTypes.DORIS:

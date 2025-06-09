@@ -514,15 +514,18 @@ const groupedDatabases = {
   '关系型数据库': [
     {label: 'MySQL', value: 'mysql', icon: databaseIcons.mysql},
     {label: 'Oracle', value: 'oracle', icon: databaseIcons.oracle},
-    {label: 'SQLServer', value: 'sqlserver', icon: databaseIcons.sqlserver},
+    {label: 'PostgreSQL', value: 'postgresql', icon: databaseIcons.postgresql},
+    {label: 'SQLServer', value: 'sqlserver', icon: databaseIcons.sqlserver}
   ],
  '国产数据库': [
     {label: 'DM7', value: 'dm7', icon: databaseIcons.dm7},
     {label: 'DM8', value: 'dm8', icon: databaseIcons.dm8},
+   {label: '人大金仓', value: 'kingbase', icon: databaseIcons.kingbase}
   ],
  '大数据数据库': [
     {label: 'Hive', value: 'hive', icon: databaseIcons.hive},
-    {label: 'ClickHouse', value: 'clickhouse', icon: databaseIcons.clickhouse},
+   {label: 'HBase', value: 'hbase', icon: databaseIcons.hbase},
+    {label: 'ClickHouse', value: 'clickhouse', icon: databaseIcons.clickhouse}
   ],
  '时序数据库': [
    {label: 'InfluxDB', value: 'influxdb', icon: databaseIcons.influxdb},
